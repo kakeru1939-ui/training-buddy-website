@@ -30,25 +30,10 @@ const FEATURES = [
 
 export function FeaturesSection() {
   return (
-    <section className="relative py-24 px-4">
-      {/* セクション背景 */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#0f172a] via-[#0d1117] to-[#0f172a]" />
-
+    <section className="py-16 px-4">
       <div className="mx-auto max-w-5xl">
-        {/* セクションヘッダー */}
-        <div className="mb-16 text-center">
-          <span className="mb-3 inline-block rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-400">
-            Features
-          </span>
-          <h2 className="text-4xl font-extrabold text-white">
-            主な機能
-          </h2>
-          <p className="mt-4 text-slate-400">
-            トレーニングをもっとスマートにする、すべての機能が揃っています。
-          </p>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="text-center text-3xl font-bold text-[var(--color-text)]">主な機能</h2>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature) => (
             <FeatureCard key={feature.title} {...feature} />
           ))}
