@@ -11,8 +11,8 @@ const notoSansJP = Noto_Sans_JP({
 })
 
 export const metadata: Metadata = {
-  title: 'Training Buddy — あなたのトレーニングパートナー',
-  description: 'ワークアウト管理・体重記録・進捗分析をひとつのアプリで。Training Buddy でトレーニングをもっと楽しく。',
+  title: 'Tsumify — あなたのトレーニングパートナー',
+  description: 'ワークアウト管理・体重記録・進捗分析をひとつのアプリで。Tsumify でトレーニングをもっと楽しく。',
 }
 
 export default function RootLayout({

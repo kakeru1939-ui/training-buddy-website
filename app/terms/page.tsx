@@ -3,7 +3,7 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: '利用規約 | Training Buddy',
+  title: '利用規約 | Tsumify',
 }
 
 export default function TermsPage() {
@@ -18,7 +18,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-[var(--color-text)]">第1条（適用）</h2>
             <p className="mt-3">
-              本規約は、Training Buddy（以下「本アプリ」）の利用条件を定めるものです。
+              本規約は、Tsumify（以下「本アプリ」）の利用条件を定めるものです。
               ユーザーの皆さまには、本規約に従って本アプリをご利用いただきます。
             </p>
           </section>

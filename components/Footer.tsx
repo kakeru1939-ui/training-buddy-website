@@ -14,7 +14,7 @@ export function Footer() {
             プライバシーポリシー
           </Link>
         </div>
-        <p>© {year} Training Buddy. All rights reserved.</p>
+        <p>© {year} Tsumify. All rights reserved.</p>
       </div>
     </footer>
   )

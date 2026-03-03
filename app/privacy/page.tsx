@@ -3,7 +3,7 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'プライバシーポリシー | Training Buddy',
+  title: 'プライバシーポリシー | Tsumify',
 }
 
 export default function PrivacyPage() {

@@ -6,7 +6,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-[var(--color-bg-elevated)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         <Link href="/" className="text-lg font-bold text-[var(--color-accent)]">
-          Training Buddy
+          Tsumify
         </Link>
         <div className="flex items-center gap-4 text-sm">
           <Link href="/terms" className="hover:text-[var(--color-accent)] transition-colors">
