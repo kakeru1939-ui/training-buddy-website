@@ -9,7 +9,7 @@ jest.mock('next-themes', () => ({
 describe('Navbar', () => {
   it('アプリ名が表示される', () => {
     render(<Navbar />)
-    expect(screen.getByText('Training Buddy')).toBeInTheDocument()
+    expect(screen.getByText('Tsumify')).toBeInTheDocument()
   })
 
   it('利用規約リンクが /terms を指す', () => {

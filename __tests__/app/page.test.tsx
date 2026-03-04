@@ -23,7 +23,7 @@ describe('Home ページ', () => {
 
   it('Navbar のアプリ名が表示される', () => {
     render(<Home />)
-    expect(screen.getByText('Training Buddy')).toBeInTheDocument()
+    expect(screen.getByText('Tsumify')).toBeInTheDocument()
   })
 
   it('Footer のコピーライトが表示される', () => {
