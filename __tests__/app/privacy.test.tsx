@@ -1,34 +1,28 @@
-import { render, screen } from '@testing-library/react'
-import PrivacyPage from '@/app/privacy/page'
+import { render, act } from '@testing-library/react'
 
-jest.mock('next-themes', () => ({
-  useTheme: () => ({ theme: 'light', setTheme: jest.fn() }),
+// navigate ユーティリティをモックして window.location.replace の jsdom 制約を回避する
+const mockNavigateTo = jest.fn()
+jest.mock('@/lib/navigate', () => ({
+  navigateTo: (url: string) => mockNavigateTo(url),
 }))
 
-describe('プライバシーポリシーページ', () => {
-  it('ページタイトル「プライバシーポリシー」が表示される', () => {
-    render(<PrivacyPage />)
-    expect(screen.getByRole('heading', { name: /プライバシーポリシー/ })).toBeInTheDocument()
+import PrivacyPage from '@/app/privacy/page'
+
+describe('プライバシーポリシーページ（リダイレクト）', () => {
+  beforeEach(() => {
+    mockNavigateTo.mockClear()
   })
 
-  it('Navbar（アプリ名）が含まれる', () => {
-    render(<PrivacyPage />)
-    expect(screen.getByText('Training Buddy')).toBeInTheDocument()
+  it('/legal#privacy へリダイレクトする', async () => {
+    await act(async () => {
+      render(<PrivacyPage />)
+    })
+
+    expect(mockNavigateTo).toHaveBeenCalledWith('/legal#privacy')
   })
 
-  it('Footer（コピーライト）が含まれる', () => {
-    render(<PrivacyPage />)
-    expect(screen.getByText(/All rights reserved/)).toBeInTheDocument()
-  })
-
-  it('「収集する情報」の見出しが存在する', () => {
-    render(<PrivacyPage />)
-    expect(screen.getByRole('heading', { name: /収集する情報/ })).toBeInTheDocument()
-  })
-
-  it('少なくとも3つのセクションがある', () => {
-    render(<PrivacyPage />)
-    const sections = screen.getAllByRole('heading', { level: 2 })
-    expect(sections.length).toBeGreaterThanOrEqual(3)
+  it('コンテンツを直接レンダリングしない', async () => {
+    const { container } = await act(async () => render(<PrivacyPage />))
+    expect(container.firstChild).toBeNull()
   })
 })

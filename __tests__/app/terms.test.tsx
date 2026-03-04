@@ -1,29 +1,28 @@
-import { render, screen } from '@testing-library/react'
-import TermsPage from '@/app/terms/page'
+import { render, act } from '@testing-library/react'
 
-jest.mock('next-themes', () => ({
-  useTheme: () => ({ theme: 'light', setTheme: jest.fn() }),
+// navigate ユーティリティをモックして window.location.replace の jsdom 制約を回避する
+const mockNavigateTo = jest.fn()
+jest.mock('@/lib/navigate', () => ({
+  navigateTo: (url: string) => mockNavigateTo(url),
 }))
 
-describe('利用規約ページ', () => {
-  it('ページタイトル「利用規約」が表示される', () => {
-    render(<TermsPage />)
-    expect(screen.getByRole('heading', { name: /利用規約/ })).toBeInTheDocument()
+import TermsPage from '@/app/terms/page'
+
+describe('利用規約ページ（リダイレクト）', () => {
+  beforeEach(() => {
+    mockNavigateTo.mockClear()
   })
 
-  it('Navbar（アプリ名）が含まれる', () => {
-    render(<TermsPage />)
-    expect(screen.getByText('Training Buddy')).toBeInTheDocument()
+  it('/legal#terms へリダイレクトする', async () => {
+    await act(async () => {
+      render(<TermsPage />)
+    })
+
+    expect(mockNavigateTo).toHaveBeenCalledWith('/legal#terms')
   })
 
-  it('Footer（コピーライト）が含まれる', () => {
-    render(<TermsPage />)
-    expect(screen.getByText(/All rights reserved/)).toBeInTheDocument()
-  })
-
-  it('少なくとも3つの条文セクションがある', () => {
-    render(<TermsPage />)
-    const sections = screen.getAllByRole('heading', { level: 2 })
-    expect(sections.length).toBeGreaterThanOrEqual(3)
+  it('コンテンツを直接レンダリングしない', async () => {
+    const { container } = await act(async () => render(<TermsPage />))
+    expect(container.firstChild).toBeNull()
   })
 })
