@@ -8,13 +8,23 @@ describe('Footer', () => {
     expect(screen.getByText(new RegExp(String(year)))).toBeInTheDocument()
   })
 
-  it('利用規約リンクが /terms を指す', () => {
+  it('利用規約リンクが /legal#terms を指す', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: '利用規約' })).toHaveAttribute('href', '/terms')
+    expect(screen.getByRole('link', { name: '利用規約' })).toHaveAttribute('href', '/legal#terms')
   })
 
-  it('プライバシーポリシーリンクが /privacy を指す', () => {
+  it('プライバシーポリシーリンクが /legal#privacy を指す', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: 'プライバシーポリシー' })).toHaveAttribute('href', '/privacy')
+    expect(screen.getByRole('link', { name: 'プライバシーポリシー' })).toHaveAttribute(
+      'href',
+      '/legal#privacy'
+    )
+  })
+
+  it('特定商取引法リンクが /legal#tokusho を指す', () => {
+    render(<Footer />)
+    expect(
+      screen.getByRole('link', { name: '特定商取引法に基づく表記' })
+    ).toHaveAttribute('href', '/legal#tokusho')
   })
 })
