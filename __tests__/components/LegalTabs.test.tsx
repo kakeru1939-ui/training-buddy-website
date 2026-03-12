@@ -9,7 +9,7 @@ describe('LegalTabs', () => {
     render(<LegalTabs getHash={() => ''} setHash={jest.fn()} />)
     expect(screen.getByRole('tab', { name: '利用規約' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'プライバシーポリシー' })).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: '特定商取引法に基づく表記' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: '特定商取引法' })).toBeInTheDocument()
   })
 
   it('初期状態でハッシュなしの場合、利用規約タブがアクティブ', () => {
@@ -24,7 +24,7 @@ describe('LegalTabs', () => {
 
   it('ハッシュが #tokusho の場合、特定商取引法タブがアクティブ', () => {
     render(<LegalTabs getHash={() => '#tokusho'} setHash={jest.fn()} />)
-    expect(screen.getByRole('tab', { name: '特定商取引法に基づく表記' })).toHaveAttribute('aria-selected', 'true')
+    expect(screen.getByRole('tab', { name: '特定商取引法' })).toHaveAttribute('aria-selected', 'true')
   })
 
   it('タブクリックでコンテンツが切り替わる', () => {
@@ -36,7 +36,7 @@ describe('LegalTabs', () => {
 
   it('特定商取引法タブに必須項目が含まれる', () => {
     render(<LegalTabs getHash={() => ''} setHash={jest.fn()} />)
-    fireEvent.click(screen.getByRole('tab', { name: '特定商取引法に基づく表記' }))
+    fireEvent.click(screen.getByRole('tab', { name: '特定商取引法' }))
     expect(screen.getByText('販売業者')).toBeInTheDocument()
     // 全角スペースを含む文字列は Testing Library の正規化を無効にして検索する
     expect(

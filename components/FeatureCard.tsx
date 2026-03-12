@@ -13,7 +13,7 @@ export function FeatureCard({ icon, title, description }: FeatureCardProps) {
         <Image src={icon} alt={title} width={64} height={64} className="object-contain" />
       </div>
       <h3 className="mt-3 font-semibold text-[var(--color-text)]">{title}</h3>
-      <p className="mt-2 text-sm text-[var(--color-text)]/70">{description}</p>
+      <p className="mt-2 text-sm text-[var(--color-text-secondary)]">{description}</p>
     </article>
   )
 }

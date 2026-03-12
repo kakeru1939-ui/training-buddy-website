@@ -7,7 +7,7 @@ type Tab = 'terms' | 'privacy' | 'tokusho'
 const TAB_LABELS: Record<Tab, string> = {
   terms: '利用規約',
   privacy: 'プライバシーポリシー',
-  tokusho: '特定商取引法に基づく表記',
+  tokusho: '特定商取引法',
 }
 
 function TermsContent() {
@@ -178,12 +178,16 @@ export function LegalTabs({
   getHash?: () => string
   setHash?: (hash: string) => void
 } = {}) {
-  const [activeTab, setActiveTab] = useState<Tab>(() => resolveTabFromHash(getHash()))
+  // SSR では window がないため 'terms' をデフォルトにし、マウント後に実ハッシュで上書きする
+  const [activeTab, setActiveTab] = useState<Tab>('terms')
   const tabKeys = Object.keys(TAB_LABELS) as Tab[]
   // 各タブボタンへの ref を保持し、矢印キー操作時のフォーカス移動に使用する
   const tabRefs = useRef<Map<Tab, HTMLButtonElement | null>>(new Map())
 
   useEffect(() => {
+    // マウント時に URL ハッシュを読んで初期タブを確定する
+    setActiveTab(resolveTabFromHash(getHash()))
+
     const handleHashChange = () => {
       setActiveTab(resolveTabFromHash(getHash()))
     }
@@ -220,7 +224,7 @@ export function LegalTabs({
     <div>
       <div
         role="tablist"
-        className="flex border-b border-[var(--color-bg-elevated)] overflow-x-auto"
+        className="flex border-b border-[var(--color-bg-elevated)]"
         onKeyDown={handleKeyDown}
       >
         {tabKeys.map((tab) => (

@@ -3,10 +3,9 @@ export function Hero() {
     <section className="py-20 px-4 text-center">
       <div className="mx-auto max-w-3xl">
         <h1 className="text-4xl font-bold leading-tight text-[var(--color-text)] sm:text-5xl">
-          あなたの<span className="text-[var(--color-accent)]">トレーニング</span>を、
-          <br />もっとスマートに。
+          あなたの<span className="text-[var(--color-accent)]">トレーニング</span>を、<br />もっとスマートに。
         </h1>
-        <p className="mt-6 text-lg text-[var(--color-text)]/70">
+        <p className="mt-6 text-lg text-[var(--color-text-secondary)]">
           ワークアウト管理・体重記録・進捗分析をひとつのアプリで。
           Tsumify でトレーニングをもっと楽しく、継続的に。
         </p>

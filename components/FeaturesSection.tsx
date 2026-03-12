@@ -26,6 +26,11 @@ const FEATURES = [
     title: 'リマインダー',
     description: '曜日と時刻を設定してトレーニング習慣化をサポート。',
   },
+  {
+    icon: '/icons/photo_icon.png',
+    title: '写真比較',
+    description: '定点撮影で体の変化を記録。ビフォーアフターを並べて確認。',
+  },
 ] as const
 
 export function FeaturesSection() {

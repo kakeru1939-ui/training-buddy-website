@@ -12,13 +12,14 @@ describe('Navbar', () => {
     expect(screen.getByText('Tsumify')).toBeInTheDocument()
   })
 
-  it('利用規約リンクが /terms を指す', () => {
+  it('ロゴリンクがトップページ(/)を指す', () => {
     render(<Navbar />)
-    expect(screen.getByRole('link', { name: '利用規約' })).toHaveAttribute('href', '/terms')
+    expect(screen.getByRole('link', { name: /Tsumify/i })).toHaveAttribute('href', '/')
   })
 
-  it('プライバシーポリシーリンクが /privacy を指す', () => {
+  it('法的リンクは Navbar に表示されない（Footer に移動済み）', () => {
     render(<Navbar />)
-    expect(screen.getByRole('link', { name: 'プライバシーポリシー' })).toHaveAttribute('href', '/privacy')
+    expect(screen.queryByRole('link', { name: '利用規約' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'プライバシーポリシー' })).not.toBeInTheDocument()
   })
 })

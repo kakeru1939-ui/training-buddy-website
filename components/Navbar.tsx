@@ -10,15 +10,7 @@ export function Navbar() {
           <Image src="/icons/app_icon.png" alt="Tsumify" width={32} height={32} className="rounded-lg" />
           Tsumify
         </Link>
-        <div className="flex items-center gap-4 text-sm">
-          <Link href="/terms" className="hover:text-[var(--color-accent)] transition-colors">
-            利用規約
-          </Link>
-          <Link href="/privacy" className="hover:text-[var(--color-accent)] transition-colors">
-            プライバシーポリシー
-          </Link>
-          <ThemeToggle />
-        </div>
+        <ThemeToggle />
       </nav>
     </header>
   )

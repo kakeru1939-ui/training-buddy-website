@@ -23,7 +23,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
       {items.map((item, index) => (
         <div
           key={item.question}
-          className="rounded-xl bg-[var(--color-bg-elevated)] overflow-hidden"
+          className="rounded-xl bg-[var(--color-bg)] overflow-hidden"
         >
           <dt>
             <button
@@ -39,7 +39,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
           </dt>
           <dd
             hidden={openIndex !== index}
-            className="px-5 pb-4 text-sm text-[var(--color-text)]/70"
+            className="px-5 pb-4 text-sm text-[var(--color-text-secondary)]"
           >
             {item.answer}
           </dd>
