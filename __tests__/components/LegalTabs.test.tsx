@@ -31,7 +31,7 @@ describe('LegalTabs', () => {
     render(<LegalTabs getHash={() => ''} setHash={jest.fn()} />)
     expect(screen.getByText(/利用条件/)).toBeInTheDocument()
     fireEvent.click(screen.getByRole('tab', { name: 'プライバシーポリシー' }))
-    expect(screen.getByText(/収集する情報/)).toBeInTheDocument()
+    expect(screen.getByText(/データの収集について/)).toBeInTheDocument()
   })
 
   it('特定商取引法タブに必須項目が含まれる', () => {
@@ -43,8 +43,7 @@ describe('LegalTabs', () => {
       screen.getByText('Tsumify Lab（代表：吉田　翔）', { normalizer: (s) => s })
     ).toBeInTheDocument()
     expect(screen.getByText('販売価格')).toBeInTheDocument()
-    expect(screen.getByText(/480/)).toBeInTheDocument()
-    expect(screen.getByText(/3,600/)).toBeInTheDocument()
+    expect(screen.getByText(/500/)).toBeInTheDocument()
     expect(screen.getByText('support@tsumify-lab.com')).toBeInTheDocument()
   })
 })

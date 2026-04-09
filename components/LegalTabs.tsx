@@ -21,10 +21,9 @@ function TermsContent() {
         </p>
       </section>
       <section>
-        <h2 className="text-xl font-semibold text-[var(--color-text)]">第2条（利用登録）</h2>
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">第2条（アカウント・登録）</h2>
         <p className="mt-3">
-          本アプリの利用を希望する方は、本規約に同意した上で利用登録を行っていただきます。
-          虚偽の情報を登録した場合、利用登録を取り消すことがあります。
+          本アプリの利用にアカウント登録は不要です。すべてのデータはお使いの端末内にのみ保存されます。
         </p>
       </section>
       <section>
@@ -32,9 +31,9 @@ function TermsContent() {
         <p className="mt-3">ユーザーは以下の行為を行ってはなりません。</p>
         <ul className="mt-2 list-disc list-inside space-y-1">
           <li>法令または公序良俗に違反する行為</li>
-          <li>他のユーザーへの嫌がらせや迷惑を及ぼす行為</li>
           <li>本アプリの運営を妨害する行為</li>
           <li>不正アクセスその他の不正な手段による行為</li>
+          <li>本アプリのリバースエンジニアリングや改変</li>
         </ul>
       </section>
       <section>
@@ -59,40 +58,33 @@ function PrivacyContent() {
   return (
     <div className="space-y-8 text-[var(--color-text)]/80 leading-relaxed">
       <section>
-        <h2 className="text-xl font-semibold text-[var(--color-text)]">収集する情報</h2>
-        <p className="mt-3">本アプリは以下の情報を収集することがあります。</p>
-        <ul className="mt-2 list-disc list-inside space-y-1">
-          <li>アカウント情報（メールアドレス）</li>
-          <li>トレーニング記録・体重データ（ユーザーが入力したデータ）</li>
-          <li>アプリの利用状況（クラッシュレポート等）</li>
-        </ul>
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">データの収集について</h2>
+        <p className="mt-3">
+          本アプリは、ユーザーから個人情報を一切収集しません。
+          アカウント登録も不要です。
+        </p>
       </section>
       <section>
-        <h2 className="text-xl font-semibold text-[var(--color-text)]">情報の利用目的</h2>
-        <p className="mt-3">収集した情報は以下の目的で利用します。</p>
-        <ul className="mt-2 list-disc list-inside space-y-1">
-          <li>本アプリのサービス提供・改善</li>
-          <li>ユーザーサポート対応</li>
-          <li>不正利用の防止</li>
-        </ul>
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">データの保管場所</h2>
+        <p className="mt-3">
+          入力したトレーニング記録・体重データ等のすべての情報は、お使いの端末内にのみ保存されます。
+          外部サーバーへの送信や、クラウドへのアップロードは一切行いません。
+        </p>
       </section>
       <section>
         <h2 className="text-xl font-semibold text-[var(--color-text)]">第三者への提供</h2>
         <p className="mt-3">
-          法令に基づく場合を除き、ユーザーの同意なく第三者に個人情報を提供することはありません。
-        </p>
-      </section>
-      <section>
-        <h2 className="text-xl font-semibold text-[var(--color-text)]">データの保管</h2>
-        <p className="mt-3">
-          ユーザーデータは Supabase（クラウドデータベース）に暗号化して保管されます。
-          アカウント削除により、すべての個人データを削除することができます。
+          本アプリはユーザーデータを収集しないため、第三者への提供は行いません。
         </p>
       </section>
       <section>
         <h2 className="text-xl font-semibold text-[var(--color-text)]">お問い合わせ</h2>
         <p className="mt-3">
-          プライバシーに関するご質問は、アプリ内のお問い合わせフォームよりご連絡ください。
+          プライバシーに関するご質問は、
+          <a href="mailto:support@tsumify-lab.com" className="text-[var(--color-accent)] hover:underline ml-1">
+            support@tsumify-lab.com
+          </a>
+          までご連絡ください。
         </p>
       </section>
     </div>
@@ -118,20 +110,13 @@ function TokushoContent() {
         </a>
       ),
     },
-    {
-      label: '販売価格',
-      value: '月額プラン：480円（税込）／ 年額プラン：3,600円（税込）',
-    },
-    { label: '支払方法', value: 'クレジットカード（Stripe）' },
-    {
-      label: '支払時期',
-      value: '月額：毎月の契約日に自動引き落とし ／ 年額：年1回の契約日に自動引き落とし',
-    },
+    { label: '販売価格', value: '買い切り：500円（税込）' },
+    { label: '支払方法', value: 'クレジットカード（App Store / Google Play）' },
+    { label: '支払時期', value: '購入時に一回のみ' },
     { label: 'サービス提供時期', value: '決済完了後、即時' },
     {
       label: 'キャンセル・返金',
-      value:
-        '次回更新日前にキャンセルすることで以降の課金を停止できます。既にお支払い済みの期間分の返金は行いません。',
+      value: '買い切り型のため、購入後の返金は原則として行いません。',
     },
     { label: '動作環境', value: 'iOS 13以上 ／ Android 5.0（API 21）以上' },
   ]
