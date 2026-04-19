@@ -31,7 +31,23 @@ describe('LegalTabs', () => {
     render(<LegalTabs getHash={() => ''} setHash={jest.fn()} />)
     expect(screen.getByText(/利用条件/)).toBeInTheDocument()
     fireEvent.click(screen.getByRole('tab', { name: 'プライバシーポリシー' }))
-    expect(screen.getByText(/データの収集について/)).toBeInTheDocument()
+    expect(screen.getByText(/1\. 事業者情報/)).toBeInTheDocument()
+    // AdMob は複数箇所に登場するため getAllByText で存在確認する
+    expect(screen.getAllByText(/Google AdMob/).length).toBeGreaterThan(0)
+  })
+
+  it('プライバシーポリシーに広告配信の記述が含まれる', () => {
+    render(<LegalTabs getHash={() => '#privacy'} setHash={jest.fn()} />)
+    // 「広告識別子」は複数セクションに登場するため getAllByText で存在確認する
+    expect(screen.getAllByText(/広告識別子/).length).toBeGreaterThan(0)
+    expect(screen.getByRole('heading', { name: /GDPR 対応/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /利用する外部サービス/ })).toBeInTheDocument()
+  })
+
+  it('利用規約に広告表示とデータ送信の条項が含まれる', () => {
+    render(<LegalTabs getHash={() => ''} setHash={jest.fn()} />)
+    expect(screen.getByText('第6条（広告表示）')).toBeInTheDocument()
+    expect(screen.getByText('第7条（データ送信）')).toBeInTheDocument()
   })
 
   it('特定商取引法タブに必須項目が含まれる', () => {
