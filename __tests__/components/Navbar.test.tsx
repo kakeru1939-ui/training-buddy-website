@@ -9,12 +9,12 @@ jest.mock('next-themes', () => ({
 describe('Navbar', () => {
   it('アプリ名が表示される', () => {
     render(<Navbar />)
-    expect(screen.getByText('Tsumify')).toBeInTheDocument()
+    expect(screen.getByText('つみトレ')).toBeInTheDocument()
   })
 
   it('ロゴリンクがトップページ(/)を指す', () => {
     render(<Navbar />)
-    expect(screen.getByRole('link', { name: /Tsumify/i })).toHaveAttribute('href', '/')
+    expect(screen.getByRole('link', { name: /つみトレ/ })).toHaveAttribute('href', '/')
   })
 
   it('法的リンクは Navbar に表示されない（Footer に移動済み）', () => {

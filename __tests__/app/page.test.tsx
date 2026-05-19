@@ -21,9 +21,9 @@ describe('Home ページ', () => {
     expect(screen.getByRole('heading', { name: /よくある質問/ })).toBeInTheDocument()
   })
 
-  it('Navbar のアプリ名が表示される', () => {
+  it('アプリ名が表示される', () => {
     render(<Home />)
-    expect(screen.getByText('Tsumify')).toBeInTheDocument()
+    expect(screen.getAllByText('つみトレ').length).toBeGreaterThan(0)
   })
 
   it('Footer のコピーライトが表示される', () => {

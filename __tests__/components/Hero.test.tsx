@@ -1,19 +1,32 @@
 import { render, screen } from '@testing-library/react'
-import { Hero } from '@/components/Hero'
+import { APP_STORE_URL, GOOGLE_PLAY_URL, Hero } from '@/components/Hero'
 
 describe('Hero', () => {
-  it('h1 ヘッドラインが表示される', () => {
+  it('アプリ名の h1 が表示される', () => {
     render(<Hero />)
-    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'つみトレ' })).toBeInTheDocument()
   })
 
-  it('「近日公開予定」テキストが表示される', () => {
+  it('公開済みのストアリンクが表示される', () => {
     render(<Hero />)
-    expect(screen.getByText(/近日公開予定/)).toBeInTheDocument()
+    expect(screen.queryByText(/近日公開予定/)).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'App Storeで見る' })).toHaveAttribute(
+      'href',
+      APP_STORE_URL,
+    )
+    expect(screen.getByRole('link', { name: 'Google Playで見る' })).toHaveAttribute(
+      'href',
+      GOOGLE_PLAY_URL,
+    )
   })
 
-  it('キャッチコピーのサブテキストが表示される', () => {
+  it('記録が続かなかった人向けのサブテキストが表示される', () => {
     render(<Hero />)
-    expect(screen.getByText(/ワークアウト管理/)).toBeInTheDocument()
+    expect(screen.getByText(/筋トレ記録が続かなかった人/)).toBeInTheDocument()
+  })
+
+  it('ストア掲載スクリーンショットが表示される', () => {
+    render(<Hero />)
+    expect(screen.getByAltText('つみトレのストア掲載スクリーンショット')).toBeInTheDocument()
   })
 })

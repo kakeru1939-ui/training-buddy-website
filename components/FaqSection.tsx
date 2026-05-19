@@ -7,7 +7,7 @@ const FAQ_ITEMS = [
   },
   {
     question: 'iOS・Android 両対応ですか？',
-    answer: 'はい、App Store および Google Play でご利用いただけます（近日公開予定）。',
+    answer: 'はい、App Store および Google Play で公開中です。iPhone と Android のどちらでもご利用いただけます。',
   },
   {
     question: 'データのバックアップはできますか？',

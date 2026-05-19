@@ -7,8 +7,8 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-[var(--color-bg-elevated)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2 text-lg font-bold text-[var(--color-accent)]">
-          <Image src="/icons/app_icon.png" alt="Tsumify" width={32} height={32} className="rounded-lg" />
-          Tsumify
+          <Image src="/icons/app_icon.png" alt="つみトレ" width={32} height={32} className="rounded-lg" />
+          つみトレ
         </Link>
         <ThemeToggle />
       </nav>
