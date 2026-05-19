@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export const APP_STORE_URL = 'https://apps.apple.com/jp/app/tsumify/id6761646787?l=en-US'
+export const APP_STORE_URL = 'https://apps.apple.com/jp/app/tsumify/id6761646787'
 export const GOOGLE_PLAY_URL =
   'https://play.google.com/store/apps/details?id=com.tsumifylab.tsumify&pcampaignid=web_share'
 
